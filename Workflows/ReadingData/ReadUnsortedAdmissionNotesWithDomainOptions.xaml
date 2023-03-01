@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Activity mc:Ignorable="sap sap2010" x:Class="ReadUnsortedAdmissionNotesWithDomainOptions" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_UnsortedAdmissionNotesFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_AdmissionDataFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="out_dt_UnsortedAdmissionNotesWithDomainOptions" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>985,866</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ReadUnsortedAdmissionNotesWithDomainOptions_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="28">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="66">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Get the unsorted admission notes of the candidates alongside their wanted domain options." DisplayName="ReadUnsortedAdmissionNotesWithDomainOptions" sap:VirtualizedContainerService.HintSize="496,801" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_UnsortedAdmissionNotes" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_AdmissionNotes" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read UnsortedAdmissionNotes" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\ReadingData\ReadUnsortedAdmissionNotesCSV.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_InputFilePath">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_UnsortedAdmissionNotesFilePath" />
+        </InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_UnsortedAdmissionNotes">
+          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_UnsortedAdmissionNotes" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read AdmissionDataCSV" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\ReadingData\ReadAdmissionDataCSV.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_InputFilePath">[in_AdmissionDataFilePath]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_AdmissionData">[dt_AdmissionNotes]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:JoinDataTables sap2010:Annotation.AnnotationText="Join based on NUMAR_MATRICOL column." DataTable1="[dt_UnsortedAdmissionNotes]" DataTable2="[dt_AdmissionNotes]" DisplayName="Combine the 2 tables" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="JoinDataTables_1" JoinType="Inner" OutputDataTable="[out_dt_UnsortedAdmissionNotesWithDomainOptions]">
+      <ui:JoinDataTables.Arguments>
+        <scg:List x:TypeArguments="ui:JoinOperationArgument" Capacity="4">
+          <ui:JoinOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EQ">
+            <ui:JoinOperationArgument.Column1>
+              <InArgument x:TypeArguments="x:String">["NUMAR_MATRICOL"]</InArgument>
+            </ui:JoinOperationArgument.Column1>
+            <ui:JoinOperationArgument.Column2>
+              <InArgument x:TypeArguments="x:String">["NUMAR_MATRICOL"]</InArgument>
+            </ui:JoinOperationArgument.Column2>
+          </ui:JoinOperationArgument>
+        </scg:List>
+      </ui:JoinDataTables.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:JoinDataTables>
+    <ui:FilterDataTable sap2010:Annotation.AnnotationText="Keep only the relevant columns: NUMAR_MATRICOL, MEDIE_ADMITERE, the domain options and the 3 special entrance cases." DataTable="[out_dt_UnsortedAdmissionNotesWithDomainOptions]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,207" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[out_dt_UnsortedAdmissionNotesWithDomainOptions]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="16">
+          <InArgument x:TypeArguments="x:String">["NUMAR_MATRICOL"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["MEDIE_ADMITERE"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["OPTIUNE_MATEMATICA_IF"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["OPTIUNE_INFORMATICA_IF"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["OPTIUNE_CTI_IF"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["OPTIUNE_INFORMATICA_SRI"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["OPTIUNE_CTI_SRI"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["ADMIS_OLIMPIC"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["CAZ_RURAL"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["CAZ_ETNIC"]</InArgument>
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:FilterDataTable>
+  </Sequence>
+</Activity>

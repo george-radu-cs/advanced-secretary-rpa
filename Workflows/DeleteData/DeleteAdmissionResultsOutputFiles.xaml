@@ -1,0 +1,195 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DeleteAdmissionResultsOutputFiles" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>985,8564</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>DeleteAdmissionResultsOutputFiles_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="27">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="68">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="To avoid overlapping between runs remove any existings admission results output files." DisplayName="DeleteAdmissionResultsOutputFiles" sap:VirtualizedContainerService.HintSize="474,8499" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="FileMateBugetExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileMateEtnicExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileMateRuralExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileMateTaxaExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileInfoBugetExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileInfoSRIExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileInfoEtnicExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FIleInfoRuralExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileInfoTaxaExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileCTIBugetExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileCTISRIExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileCTIEtnicExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileCTIRuralExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileCTITaxaExists" />
+      <Variable x:TypeArguments="x:Boolean" Name="FileRejectedExists" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileRejectedExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_15" Path="[in_Config(&quot;AdmissionResultsRejectedCandidatesFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileRejectedExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_15">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_15" Path="[in_Config(&quot;AdmissionResultsRejectedCandidatesFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileMateBugetExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_Config(&quot;AdmissionResultsMatematicaBugetFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileMateBugetExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[in_Config(&quot;AdmissionResultsMatematicaBugetFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileMateEtnicExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[in_Config(&quot;AdmissionResultsMatematicaEtnicFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileMateEtnicExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[in_Config(&quot;AdmissionResultsMatematicaEtnicFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileMateRuralExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[in_Config(&quot;AdmissionResultsMatematicaRuralFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileMateRuralExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_3" Path="[in_Config(&quot;AdmissionResultsMatematicaRuralFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileMateTaxaExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[in_Config(&quot;AdmissionResultsMatematicaTaxaFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileMateTaxaExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_4">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_4" Path="[in_Config(&quot;AdmissionResultsMatematicaTaxaFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileInfoBugetExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_5" Path="[in_Config(&quot;AdmissionResultsInformaticaBugetFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileInfoBugetExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_10">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_5" Path="[in_Config(&quot;AdmissionResultsInformaticaBugetFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileInfoSRIExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_6" Path="[in_Config(&quot;AdmissionResultsInformaticaSRIFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileInfoSRIExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_11">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_6" Path="[in_Config(&quot;AdmissionResultsInformaticaSRIFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileInfoEtnicExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_7" Path="[in_Config(&quot;AdmissionResultsInformaticaEtnicFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileInfoEtnicExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_12">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_7" Path="[in_Config(&quot;AdmissionResultsInformaticaEtnicFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FIleInfoRuralExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_8" Path="[in_Config(&quot;AdmissionResultsInformaticaRuralFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FIleInfoRuralExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_13">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_8" Path="[in_Config(&quot;AdmissionResultsInformaticaRuralFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileInfoTaxaExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_9" Path="[in_Config(&quot;AdmissionResultsInformaticaTaxaFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileInfoTaxaExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_9">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_9" Path="[in_Config(&quot;AdmissionResultsInformaticaTaxaFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileCTIBugetExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_10" Path="[in_Config(&quot;AdmissionResultsCTIBugetFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileCTIBugetExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_8">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_10" Path="[in_Config(&quot;AdmissionResultsCTIBugetFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileCTISRIExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_11" Path="[in_Config(&quot;AdmissionResultsCTISRIFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileCTISRIExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_7">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_11" Path="[in_Config(&quot;AdmissionResultsCTISRIFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileCTIEtnicExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_12" Path="[in_Config(&quot;AdmissionResultsCTIEtnicFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileCTIEtnicExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_5">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_12" Path="[in_Config(&quot;AdmissionResultsCTIEtnicFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileCTIRuralExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_13" Path="[in_Config(&quot;AdmissionResultsCTIRuralFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileCTIRuralExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_6">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_13" Path="[in_Config(&quot;AdmissionResultsCTIRuralFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileCTITaxaExists]" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="PathExists_14" Path="[in_Config(&quot;AdmissionResultsCTITaxaFilePath&quot;).ToString]" PathType="File" />
+    <If Condition="[FileCTITaxaExists]" sap:VirtualizedContainerService.HintSize="412,379" sap2010:WorkflowViewState.IdRef="If_14">
+      <If.Then>
+        <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="DeleteFileX_14" Path="[in_Config(&quot;AdmissionResultsCTITaxaFilePath&quot;).ToString]" />
+      </If.Then>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="412,94" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Successfully deleted old admission results files.&quot;]" />
+  </Sequence>
+</Activity>

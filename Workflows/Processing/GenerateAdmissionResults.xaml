@@ -1,0 +1,676 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GenerateAdmissionResults" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>431,946</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GenerateAdmissionResults_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="56">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="84">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="GenerateAdmissionResults" sap:VirtualizedContainerService.HintSize="441,881" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_UnsortedAdmissionResults" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_SortedAdmissionResults" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceMatematicaIFBuget" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceMatematicaIFEtnic" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceMatematicaIFRural" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceMatematicaIFTaxa" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceMatematicaSRI" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceInformaticaIFBuget" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceInformaticaIFEtnic" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceInformaticaIFRural" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceInformaticaIFTaxa" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceInformaticaSRI" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceCTIIFBuget" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceCTIIFEtnic" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceCTIIFRural" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceCTIIFTaxa" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="PlaceCTISRI" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Delete AdmissionResultsOutputFiles" sap:VirtualizedContainerService.HintSize="379,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\DeleteData\DeleteAdmissionResultsOutputFiles.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Write AdmissionResultsHeaders" sap:VirtualizedContainerService.HintSize="379,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\WritingData\WriteAdmissionResultsHeaders.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read UnsortedAdmissionNotesWithDomainOptions" sap:VirtualizedContainerService.HintSize="379,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\ReadingData\ReadUnsortedAdmissionNotesWithDomainOptions.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_UnsortedAdmissionNotesFilePath">[in_Config("Temp_Unsorted_CandidatesFullAdmissionNotesPath").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_AdmissionDataFilePath">[in_Config("AdmissionDataCSVPath").ToString]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_UnsortedAdmissionNotesWithDomainOptions">[dt_UnsortedAdmissionResults]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="MEDIE_ADMITERE" DataTable="[dt_UnsortedAdmissionResults]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="379,81" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[dt_SortedAdmissionResults]" SortOrder="Descending" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_SortedAdmissionResults]" DisplayName="For each admission result in the sorted datatable" sap:VirtualizedContainerService.HintSize="379,53" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentAdmissionResult" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="680,1442" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[Convert.ToDecimal(CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;)) &gt; 5.0]" sap:VirtualizedContainerService.HintSize="618,1331" sap2010:WorkflowViewState.IdRef="If_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap2010:Annotation.AnnotationText="The candidate chosed an option if the value is different than -1. The value represent his order of preference for the domains. The SRI options don't special rules for the social cases." DisplayName="Check the candidate options" sap:VirtualizedContainerService.HintSize="540,906" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[Convert.ToInt32(CurrentAdmissionResult.Item(&quot;OPTIUNE_MATEMATICA_IF&quot;)) &lt;&gt; -1]" DisplayName="Check if the candidate choose the MATEMATICA IF Domain" sap:VirtualizedContainerService.HintSize="478,379" sap2010:WorkflowViewState.IdRef="If_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Candidate choose the domain MATEMATICA IF" sap:VirtualizedContainerService.HintSize="749,2794" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:IfElseIf sap2010:Annotation.AnnotationText="If the candidate entered with status of OLIMPIC, no matter its social background, he will be placed on the main list. For the etnic and rural cases will exists separate lists. For the rest they will be placed on the main list. If the candidate place is not on in the available number of places than it will be palced both on a waiting list and the tax list." DisplayName="Decide on what list the candidate should be put" sap:VirtualizedContainerService.HintSize="687,2683" sap2010:WorkflowViewState.IdRef="IfElseIf_9">
+                          <ui:IfElseIf.ConditionBlocks>
+                            <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                              <ui:IfElseIfBlock BlockType="If" Condition="[Convert.ToBoolean(CurrentAdmissionResult.Item(&quot;ADMIS_OLIMPIC&quot;))]">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate entered with OLIMPIC status" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsMatematicaBugetFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_21" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,10,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_MATEMATICA_IF&quot;).ToString+&quot;,TRUE&quot;]" UseDefaultEncoding="False" />
+                                    <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[PlaceMatematicaIFBuget]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[PlaceMatematicaIFBuget+1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                              <ui:IfElseIfBlock BlockType="ElseIf" Condition="[Convert.ToBoolean(CurrentAdmissionResult.Item(&quot;CAZ_ETNIC&quot;)) And PlaceMatematicaIFEtnic &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesMatematicaEtnic&quot;))]">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate is on the ETNIC buget list" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsMatematicaEtnicFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_22" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_MATEMATICA_IF&quot;).ToString]" UseDefaultEncoding="False" />
+                                    <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[PlaceMatematicaIFEtnic]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[PlaceMatematicaIFEtnic+1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                              <ui:IfElseIfBlock BlockType="ElseIf" Condition="[Convert.ToBoolean(CurrentAdmissionResult.Item(&quot;CAZ_RURAL&quot;)) And PlaceMatematicaIFRural &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesMatematicaRural&quot;))]">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate is on the RURAL buget list" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsMatematicaRuralFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_23" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_MATEMATICA_IF&quot;).ToString]" UseDefaultEncoding="False" />
+                                    <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[PlaceMatematicaIFRural]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[PlaceMatematicaIFRural+1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                              <ui:IfElseIfBlock BlockType="Else">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate is on the main lists." sap:VirtualizedContainerService.HintSize="636,1028" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[PlaceMatematicaIFBuget &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesMatematicaBuget&quot;))]" DisplayName="Check if the candidate can be placed on the BUGET list" sap:VirtualizedContainerService.HintSize="574,917" sap2010:WorkflowViewState.IdRef="If_11">
+                                      <If.Then>
+                                        <Sequence DisplayName="Buget" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AppendLine File="{x:Null}" DisplayName="Place the candidate on the BUGET list" FileName="[in_Config(&quot;AdmissionResultsMatematicaBugetFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_24" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_MATEMATICA_IF&quot;).ToString+&quot;,FALSE&quot;]" UseDefaultEncoding="False" />
+                                          <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[PlaceMatematicaIFBuget]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[PlaceMatematicaIFBuget+1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Taxa" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AppendLine File="{x:Null}" DisplayName="Place the candidate on the TAX list" FileName="[in_Config(&quot;AdmissionResultsMatematicaTaxaFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_25" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_MATEMATICA_IF&quot;).ToString]" UseDefaultEncoding="False" />
+                                          <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[PlaceMatematicaIFTaxa]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[PlaceMatematicaIFTaxa+1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                            </sc:BindingList>
+                          </ui:IfElseIf.ConditionBlocks>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:IfElseIf>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <ui:Comment Text="{x:Null}" DisplayName="The candidate didn't choose MATEMATICA IF" sap:VirtualizedContainerService.HintSize="334,37" sap2010:WorkflowViewState.IdRef="Comment_1" />
+                    </If.Else>
+                  </If>
+                  <If Condition="[Convert.ToInt32(CurrentAdmissionResult.Item(&quot;OPTIUNE_INFORMATICA_IF&quot;)) &lt;&gt; -1]" DisplayName="Check if the candidate choose the INFORMATICA IF Domain" sap:VirtualizedContainerService.HintSize="478,53" sap2010:WorkflowViewState.IdRef="If_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Candidate choose the domain INFORMATICA IF" sap:VirtualizedContainerService.HintSize="400,83" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:IfElseIf sap2010:Annotation.AnnotationText="If the candidate entered with status of OLIMPIC, no matter its social background, he will be placed on the main list. For the etnic and rural cases will exists separate lists. For the rest they will be placed on the main list. If the candidate place is not on in the available number of places than it will be palced both on a waiting list and the tax list." DisplayName="Decide on what list the candidate should be put" sap:VirtualizedContainerService.HintSize="687,2683" sap2010:WorkflowViewState.IdRef="IfElseIf_10">
+                          <ui:IfElseIf.ConditionBlocks>
+                            <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                              <ui:IfElseIfBlock BlockType="If" Condition="[Convert.ToBoolean(CurrentAdmissionResult.Item(&quot;ADMIS_OLIMPIC&quot;))]">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate entered with OLIMPIC status" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsInformaticaBugetFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_26" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,10,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_INFORMATICA_IF&quot;).ToString+&quot;,TRUE&quot;]" UseDefaultEncoding="False" />
+                                    <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[PlaceInformaticaIFBuget]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[PlaceInformaticaIFBuget+1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                              <ui:IfElseIfBlock BlockType="ElseIf" Condition="[Convert.ToBoolean(CurrentAdmissionResult.Item(&quot;CAZ_ETNIC&quot;)) And PlaceInformaticaIFEtnic &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesInformaticaEtnic&quot;))]">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate is on the ETNIC buget list" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsInformaticaEtnicFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_27" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_INFORMATICA_IF&quot;).ToString]" UseDefaultEncoding="False" />
+                                    <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[PlaceInformaticaIFEtnic]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[PlaceInformaticaIFEtnic+1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                              <ui:IfElseIfBlock BlockType="ElseIf" Condition="[Convert.ToBoolean(CurrentAdmissionResult.Item(&quot;CAZ_RURAL&quot;)) And PlaceInformaticaIFRural &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesInformaticaRural&quot;))]">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate is on the RURAL buget list" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsInformaticaRuralFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_28" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_INFORMATICA_IF&quot;).ToString]" UseDefaultEncoding="False" />
+                                    <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[PlaceInformaticaIFRural]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[PlaceInformaticaIFRural+1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                              <ui:IfElseIfBlock BlockType="Else">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate is on the main lists." sap:VirtualizedContainerService.HintSize="636,1028" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[PlaceInformaticaIFBuget &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesInformaticaBuget&quot;))]" DisplayName="Check if the candidate can be placed on the BUGET list" sap:VirtualizedContainerService.HintSize="574,917" sap2010:WorkflowViewState.IdRef="If_12">
+                                      <If.Then>
+                                        <Sequence DisplayName="Buget" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AppendLine File="{x:Null}" DisplayName="Place the candidate on the BUGET list" FileName="[in_Config(&quot;AdmissionResultsInformaticaBugetFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_29" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_INFORMATICA_IF&quot;).ToString+&quot;,FALSE&quot;]" UseDefaultEncoding="False" />
+                                          <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[PlaceInformaticaIFBuget]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[PlaceInformaticaIFBuget+1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Taxa" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AppendLine File="{x:Null}" DisplayName="Place the candidate on the TAX list" FileName="[in_Config(&quot;AdmissionResultsInformaticaTaxaFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_30" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_INFORMATICA_IF&quot;).ToString]" UseDefaultEncoding="False" />
+                                          <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_27">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[PlaceInformaticaIFTaxa]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[PlaceInformaticaIFTaxa+1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                            </sc:BindingList>
+                          </ui:IfElseIf.ConditionBlocks>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:IfElseIf>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <ui:Comment Text="{x:Null}" DisplayName="The candidate didn't choose INFORMATICA IF" sap:VirtualizedContainerService.HintSize="334,37" sap2010:WorkflowViewState.IdRef="Comment_2" />
+                    </If.Else>
+                  </If>
+                  <If Condition="[Convert.ToInt32(CurrentAdmissionResult.Item(&quot;OPTIUNE_CTI_IF&quot;)) &lt;&gt; -1]" DisplayName="Check if the candidate choose the CTI IF Domain" sap:VirtualizedContainerService.HintSize="478,53" sap2010:WorkflowViewState.IdRef="If_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Candidate choose the domain CTI IF" sap:VirtualizedContainerService.HintSize="400,83" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:IfElseIf sap2010:Annotation.AnnotationText="If the candidate entered with status of OLIMPIC, no matter its social background, he will be placed on the main list. For the etnic and rural cases will exists separate lists. For the rest they will be placed on the main list. If the candidate place is not on in the available number of places than it will be palced both on a waiting list and the tax list." DisplayName="Decide on what list the candidate should be put" sap:VirtualizedContainerService.HintSize="687,2683" sap2010:WorkflowViewState.IdRef="IfElseIf_11">
+                          <ui:IfElseIf.ConditionBlocks>
+                            <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                              <ui:IfElseIfBlock BlockType="If" Condition="[Convert.ToBoolean(CurrentAdmissionResult.Item(&quot;ADMIS_OLIMPIC&quot;))]">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate entered with OLIMPIC status" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsCTIBugetFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_31" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,10,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_CTI_IF&quot;).ToString+&quot;,TRUE&quot;]" UseDefaultEncoding="False" />
+                                    <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_28">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[PlaceCTIIFBuget]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[PlaceCTIIFBuget+1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                              <ui:IfElseIfBlock BlockType="ElseIf" Condition="[Convert.ToBoolean(CurrentAdmissionResult.Item(&quot;CAZ_ETNIC&quot;)) And PlaceCTIIFEtnic &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesCTIEtnic&quot;))]">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate is on the ETNIC buget list" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsMatematicaEtnicFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_32" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_CTI_IF&quot;).ToString]" UseDefaultEncoding="False" />
+                                    <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[PlaceCTIIFEtnic]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[PlaceCTIIFEtnic+1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                              <ui:IfElseIfBlock BlockType="ElseIf" Condition="[Convert.ToBoolean(CurrentAdmissionResult.Item(&quot;CAZ_RURAL&quot;)) And PlaceCTIIFRural &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesCTIRural&quot;))]">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate is on the RURAL buget list" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsCTIRuralFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_33" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_CTI_IF&quot;).ToString]" UseDefaultEncoding="False" />
+                                    <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[PlaceCTIIFRural]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[PlaceCTIIFRural+1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                              <ui:IfElseIfBlock BlockType="Else">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="The candidate is on the main lists." sap:VirtualizedContainerService.HintSize="636,1028" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[PlaceCTIIFBuget &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesCTIBuget&quot;))]" DisplayName="Check if the candidate can be placed on the BUGET list" sap:VirtualizedContainerService.HintSize="574,917" sap2010:WorkflowViewState.IdRef="If_13">
+                                      <If.Then>
+                                        <Sequence DisplayName="Buget" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AppendLine File="{x:Null}" DisplayName="Place the candidate on the BUGET list" FileName="[in_Config(&quot;AdmissionResultsCTIBugetFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_34" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_CTI_IF&quot;).ToString+&quot;,FALSE&quot;]" UseDefaultEncoding="False" />
+                                          <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_31">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[PlaceCTIIFBuget]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[PlaceCTIIFBuget+1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Taxa" sap:VirtualizedContainerService.HintSize="496,369" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AppendLine File="{x:Null}" DisplayName="Place the candidate on the TAX list" FileName="[in_Config(&quot;AdmissionResultsCTITaxaFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_35" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_CTI_IF&quot;).ToString]" UseDefaultEncoding="False" />
+                                          <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_32">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[PlaceCTIIFTaxa]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[PlaceCTIIFTaxa+1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                            </sc:BindingList>
+                          </ui:IfElseIf.ConditionBlocks>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:IfElseIf>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <ui:Comment Text="{x:Null}" DisplayName="The candidate didn't choose CTI IF" sap:VirtualizedContainerService.HintSize="334,37" sap2010:WorkflowViewState.IdRef="Comment_3" />
+                    </If.Else>
+                  </If>
+                  <If Condition="[Convert.ToInt32(CurrentAdmissionResult.Item(&quot;OPTIUNE_INFORMATICA_SRI&quot;)) &lt;&gt; -1 AND PlaceInformaticaSRI &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesInformaticaSRI&quot;))]" DisplayName="Check if the candidate choose the INFORMATICA SRI Domain" sap:VirtualizedContainerService.HintSize="478,53" sap2010:WorkflowViewState.IdRef="If_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap2010:Annotation.AnnotationText="For the INFORMATICA SRI domain the candidates don't have a buget/tax list, they either get in or not." DisplayName="Candidate choose the domain INFORMATICA SRI" sap:VirtualizedContainerService.HintSize="400,127" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsInformaticaSRIFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_36" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_INFORMATICA_SRI&quot;).ToString]" UseDefaultEncoding="False" />
+                        <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_33">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[PlaceInformaticaSRI]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[PlaceInformaticaSRI+1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <ui:Comment Text="{x:Null}" DisplayName="The candidate didn't choose INFORMATICA SRI" sap:VirtualizedContainerService.HintSize="334,37" sap2010:WorkflowViewState.IdRef="Comment_4" />
+                    </If.Else>
+                  </If>
+                  <If Condition="[Convert.ToInt32(CurrentAdmissionResult.Item(&quot;OPTIUNE_CTI_SRI&quot;)) &lt;&gt; -1 AND PlaceCTISRI &lt;= Convert.ToInt32(in_Config(&quot;NumberPlacesCTISRI&quot;))]" DisplayName="Check if the candidate choose the CTI SRI Domain" sap:VirtualizedContainerService.HintSize="478,53" sap2010:WorkflowViewState.IdRef="If_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap2010:Annotation.AnnotationText="For the CTI SRI domain the candidates don't have a buget/tax list, they either get in or not." DisplayName="Candidate choose the domain CTI SRI" sap:VirtualizedContainerService.HintSize="400,127" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsCTISRIFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="AppendLine_37" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;OPTIUNE_CTI_SRI&quot;).ToString]" UseDefaultEncoding="False" />
+                        <Assign DisplayName="Mark one more place as occupied" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_34">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[PlaceCTISRI]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[PlaceCTISRI+1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <ui:Comment Text="{x:Null}" DisplayName="The candidate didn't choose CTI SRI" sap:VirtualizedContainerService.HintSize="334,37" sap2010:WorkflowViewState.IdRef="Comment_5" />
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="The candidate will be on the rejected candidates list." sap:VirtualizedContainerService.HintSize="400,246" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:AppendLine File="{x:Null}" DisplayName="Append Line" FileName="[in_Config(&quot;AdmissionResultsRejectedCandidatesFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,135" sap2010:WorkflowViewState.IdRef="AppendLine_1" Text="[CurrentAdmissionResult.Item(&quot;NUMAR_MATRICOL&quot;).ToString+&quot;,&quot;+CurrentAdmissionResult.Item(&quot;MEDIE_ADMITERE&quot;).ToString]" UseDefaultEncoding="False" />
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachRow>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="379,94" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Finished generating admission results, see Data/Output dir&quot;]" />
+  </Sequence>
+</Activity>
